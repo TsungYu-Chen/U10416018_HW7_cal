@@ -20,6 +20,24 @@ public class MyCalculator extends Application{
 		//調整間距
 		pane.setHgap(10);
 		pane.setVgap(10);
+		
+		MenuBar menuBar = new MenuBar();
+    		Menu menuV = new Menu("檢視(V)");
+    		Menu menuE = new Menu("編輯(E)");  
+    		Menu menuH = new Menu("說明(H)");
+			MenuItem ItemT = new MenuItem("標準型(T)");    
+			MenuItem ItemS = new MenuItem("工程型(S)");   
+			MenuItem ItemP = new MenuItem("程式設計師(P)");   
+			MenuItem ItemA = new MenuItem("統計資料(A)");
+			menuV.getItems().addAll(ItemT,ItemS,ItemP,ItemA);
+    		menuBar.getMenus().addAll(menuV, menuE, menuH);
+			pane.getChildren().add(menuBar);
+			
+		//創造顯示區, 調整大小, 並使其無法輸入
+		TextField space = new TextField();
+		space.setPrefSize(340,40);
+		space.setEditable(false);
+		pane.getChildren().add(space);
 	
 		//創造按鈕
 		Button MC = new Button("MC");
@@ -54,12 +72,24 @@ public class MyCalculator extends Application{
 		
 		Button B7 = new Button("7");
 		B7.setPrefSize(60,40);
+		B7.setOnAction(e -> {
+			int num = 7;
+        	space.setText(space.getText() + num);
+		});
 		
 		Button B8 = new Button("8");
 		B8.setPrefSize(60,40);
+		B8.setOnAction(e -> {
+			int num = 8;
+        	space.setText(space.getText() + num);
+		});
 		
 		Button B9 = new Button("9");
 		B9.setPrefSize(60,40);
+		B9.setOnAction(e -> {
+			int num = 9;
+        	space.setText(space.getText() + num);
+		});
 		
 		Button Div = new Button("/");
 		Div.setPrefSize(60,40);
@@ -69,12 +99,24 @@ public class MyCalculator extends Application{
 		
 		Button B4 = new Button("4");
 		B4.setPrefSize(60,40);
+		B4.setOnAction(e -> {
+			int num = 4;
+			space.setText(space.getText() + num);
+		});
 		
 		Button B5 = new Button("5");
 		B5.setPrefSize(60,40);
+		B5.setOnAction(e -> {
+			int num = 5;
+			space.setText(space.getText() + num);
+		});
 		
 		Button B6 = new Button("6");
 		B6.setPrefSize(60,40);
+		B6.setOnAction(e -> {
+			int num = 6;
+			space.setText(space.getText() + num);
+		});
 		
 		Button Mul = new Button("*");
 		Mul.setPrefSize(60,40);
@@ -84,25 +126,40 @@ public class MyCalculator extends Application{
 		
 		Button B1 = new Button("1");
 		B1.setPrefSize(60,40);
+		B1.setOnAction(e -> {
+			int num = 1;
+			space.setText(space.getText() + num);
+		});
 		
 		Button B2 = new Button("2");
 		B2.setPrefSize(60,40);
+		B2.setOnAction(e -> {
+			int num = 2;
+			space.setText(space.getText() + num);
+		});
 		
 		Button B3 = new Button("3");
 		B3.setPrefSize(60,40);
+		B3.setOnAction(e -> {
+			int num = 3;
+			space.setText(space.getText() + num);
+		});
 		
 		Button Sub = new Button("-");
 		Sub.setPrefSize(60,40);
 		
 		Button Equ = new Button("=");
-		Equ.setPrefSize(60,90);
-		Equ.setLayoutX(330);
-		Equ.setLayoutY(300);
+		Equ.setPrefSize(60,40);
+		
 		
 		
 		
 		Button B0 = new Button("0");
 		B0.setPrefSize(130,40);
+		B0.setOnAction(e -> {
+			int num = 0;
+			space.setText(space.getText() + num);
+		});
 		
 		Button Dot = new Button(".");
 		Dot.setPrefSize(60,40);
@@ -111,25 +168,19 @@ public class MyCalculator extends Application{
 		Plu.setPrefSize(60,40);
 		
 		
-		//創造顯示區, 調整大小, 並使其無法輸入
-		TextField space = new TextField();
-		space.setPrefSize(340,40);
-		space.setEditable(false);
-		pane.getChildren().add(space);
-		
 		//加入所有按鈕
 		pane.getChildren().addAll(MC,    MR,    MS,    Madd,  Msub,
 								  Back,  CE,    C,     OR,    Sqrt,
 								  B7,    B8,    B9,    Div,   Per,
 								  B4,    B5,    B6,    Mul,   Rec,
-								  B1,    B2,    B3,    Sub,   
+								  B1,    B2,    B3,    Sub,   Equ,
 								  B0,    Dot,   Plu);
 		
 		
 		//視窗設定
 		myStage.setTitle("計算機");
 		myStage.setWidth(400);
-		myStage.setHeight(400);
+		myStage.setHeight(450);
 		myStage.setScene(scene);
 		myStage.setResizable(false);
 		myStage.show();
